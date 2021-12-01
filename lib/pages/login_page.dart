@@ -6,7 +6,9 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: Center(
-        child: Text("Login Page",style: TextStyle(
+        child: Text(
+          "Login Page",
+          style: TextStyle(
           fontSize: 40,
           color: Colors.cyan,
           fontWeight: FontWeight.bold,
