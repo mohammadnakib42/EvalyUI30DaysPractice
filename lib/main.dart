@@ -1,5 +1,6 @@
 import 'package:evaly_ui/pages/home_page.dart';
 import 'package:evaly_ui/pages/login_page.dart';
+import 'package:evaly_ui/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -21,11 +22,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         fontFamily: GoogleFonts.lato().fontFamily,
       ),
+      debugShowCheckedModeBanner: false,
       initialRoute: "/login",
       routes: {
         "/": (context) => LoginPage(),
-        "/home": (context) => HomePage(),
-        "/login": (context) => LoginPage(),
+        MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.loginRoute: (context) => LoginPage(),
       },
     );
   }
