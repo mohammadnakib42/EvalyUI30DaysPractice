@@ -1,9 +1,15 @@
 import 'package:evaly_ui/utils/routes.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String name = "";
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -20,7 +26,7 @@ class LoginPage extends StatelessWidget {
               child: Text("Hushkurtuk"),
             ),
             Text(
-              "Welcome to the Hell of Noyan 👹👹👿👺👹",
+              " Welcome to the Hell of Noyan $name",
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -36,17 +42,26 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 children: [
                   TextFormField(
-                    decoration: InputDecoration(
-                      hintText: " Enter Username ",
-                      labelText: " User Name ",
-                    ),
-                  ),
+                      decoration: InputDecoration(
+                        hintText: " Enter Username ",
+                        labelText: " User Name ",
+                      ),
+                      onChanged: (value) {
+                        name = value;
+                        setState(() {});
+                      }),
                   TextFormField(
                     obscureText: true,
                     decoration: InputDecoration(
                       hintText: " Enter Password ",
                       labelText: " PassWord ",
                     ),
+                    /*onChanged: (value) {
+                      name = value;
+                      setState(() {
+                        
+                      });
+                    },*/
                   ),
                 ],
               ),
@@ -54,13 +69,18 @@ class LoginPage extends StatelessWidget {
             SizedBox(
               height: 40.0,
             ),
-            ElevatedButton(
-              onPressed: () {
-                //print("Login Successful");
-                Navigator.pushNamed(context, MyRoutes.homeRoute);
-              },
-              child: Text("Login"),
-              style: TextButton.styleFrom(minimumSize: Size(150, 40)),
+            Container(
+              child: ElevatedButton(
+                onPressed: () {
+                  //print("Login Successful");
+                  Navigator.pushNamed(context, MyRoutes.homeRoute);
+                },
+                child: Text("Login"),
+                style: TextButton.styleFrom(minimumSize: Size(150, 40)),
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(45),
+              ),
             ),
           ],
         ),
